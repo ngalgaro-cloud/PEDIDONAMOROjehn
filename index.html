@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Pedido Especial 💖</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🌸 CHUVA DE PÉTALAS -->
+<div class="petals" id="petals"></div>
+
+<div class="content">
+    <p>Do you want to become my girlfriend? 💖</p>
+
+    <br><br>
+
+    <button onclick="aceitou()">SIM</button>
+    <button id="nao" onclick="fugir()">NÃO</button>
+
+    <p id="mensagem"></p>
+</div>
+
+<script>
+    // 🌹 LINK CONFIÁVEL PARA PÉTALAS
+    const petalImage = "https://i.imgur.com/TlJ1rKQ.png"; // URL Imgur confiável
+    const petalsContainer = document.getElementById("petals");
+
+    const NUM_PETALS = 30; // Quantidade de pétalas
+
+    for(let i=0; i<NUM_PETALS; i++) {
+        const petal = document.createElement("img");
+        petal.src = petalImage;
+        petal.className = "petal";
+        petal.style.left = Math.random() * 100 + "%";
+        petal.style.animationDuration = (5 + Math.random()*10) + "s";
+        petal.style.animationDelay = Math.random() * 10 + "s";
+        petal.style.width = 15 + Math.random()*20 + "px";
+        petalsContainer.appendChild(petal);
+    }
+
+    // Função SIM
+    function aceitou() {
+        document.getElementById("mensagem").innerText =
+            "Now you are officially my girlfriend 🌹💍";
+    }
+
+    // Botão NÃO fugindo
+    function fugir() {
+        const botao = document.getElementById("nao");
+        const largura = window.innerWidth - botao.offsetWidth;
+        const altura = window.innerHeight - botao.offsetHeight;
+
+        botao.style.left = Math.random() * largura + "px";
+        botao.style.top = Math.random() * altura + "px";
+    }
+</script>
+
+</body>
+</html>
